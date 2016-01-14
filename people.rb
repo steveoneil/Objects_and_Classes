@@ -34,3 +34,5 @@ student.greeting
 instructor.teach
 
 student.learn
+
+# student.teach  --> generates a NoMethodError because the teach method is only within the scope of the Instructor class
