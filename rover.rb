@@ -1,3 +1,23 @@
+class Command
+
+  def receive_input
+    input_data = []
+    # Receiving plateau size (x-size, y-size)
+    input_data [0] = gets.split(" ")
+    # Receiving Rover1's current position (x-coord y-coord orientation(N,E,S,W)"
+    input_data [1] = gets.split(" ")
+    # Receiving Rover1's movement instructions (LRM)"
+    input_data [2] = gets.chomp.split(//)
+    # Receiving Rover2's current position (x-coord y-coord orientation(N,E,S,W)"
+    input_data [3] = gets.split(" ")
+    # Receiving Rover2's movement instructions (LRM)"
+    input_data [4] = gets.chomp.split(//)
+
+    input_data
+  end
+
+end
+
 class Rover
   attr_accessor :x_coord, :y_coord, :orientation
 
@@ -8,27 +28,7 @@ class Rover
   end
 
   def read_instruction
-    input_data = []
-    # Receiving plateau size (x-size, y-size)
-    puts "Enter plateau size (x y)"
-    input_data [0] = gets.split(" ")
-    puts "Input_data [0] = #{input_data[0]}"
-    # Receiving Rover1's current position (x-coord y-coord orientation(N,E,S,W)"
-    puts "Enter Rover1's current position and orientation (x y o)"
-    input_data [1] = gets.split(" ")
-    puts "Input_data [1] = #{input_data[1]}"
-    # Receiving Rover1's movement instructions (LRM)"
-    puts "Enter Rover1's movement instructions (LRM)"
-    input_data [2] = gets.chomp.split(//)
-    puts "Input_data [2] = #{input_data[2]}"
-    # Receiving Rover2's current position (x-coord y-coord orientation(N,E,S,W)"
-    puts "Enter Rover1's current position and orientation (x y o)"
-    input_data [3] = gets.split(" ")
-    puts "Input_data [3] = #{input_data[3]}"
-    # Receiving Rover2's movement instructions (LRM)"
-    puts "Enter Rover2's movement instructions (LRM)"
-    input_data [4] = gets.chomp.split(//)
-    puts "Input_data [4] = #{input_data[4]}"
+
   end
 
   def turn
@@ -41,7 +41,9 @@ class Rover
 
 end
 
-gort1 = Rover.new
-gort1.read_instruction
-gort1.turn
-gort1.move
+gort1 = Command.new
+data_load = gort1.receive_input
+
+gort2 = Rover.new
+gort2.turn
+gort2.move
