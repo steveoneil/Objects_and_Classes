@@ -41,9 +41,14 @@ class Rover
 
 end
 
-gort1 = Command.new
-data_load = gort1.receive_input
+# Receiving initial data load
+data_load = Command.new.receive_input
 
-gort2 = Rover.new
-gort2.turn
-gort2.move
+
+gort1 = Rover.new
+x = gort1.x_coord
+y = gort1.y_coord
+o = gort1.orientation
+
+gort1.turn
+gort1.move
