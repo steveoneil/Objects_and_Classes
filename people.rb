@@ -1,5 +1,10 @@
 class Person
   attr_accessor :name
+
+  def greeting
+    puts "Hi, my name is #{name}"
+  end
+
 end
 
 class Student < Person
@@ -22,6 +27,10 @@ student = Student.new
 student.learn
 student.name = "Ted"
 puts "#{student.name}"
+student.greeting
 
 instructor = Instructor.new
 instructor.teach
+instructor.name = "Suzy"
+puts "#{instructor.name}"
+instructor.greeting
