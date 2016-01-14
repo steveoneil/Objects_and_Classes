@@ -23,14 +23,14 @@ class Instructor < Person
 
 end
 
+instructor = Instructor.new
+instructor.name = "Chris"
+instructor.greeting
+
 student = Student.new
-student.learn
-student.name = "Ted"
-puts "#{student.name}"
+student.name = "Christina"
 student.greeting
 
-instructor = Instructor.new
 instructor.teach
-instructor.name = "Suzy"
-puts "#{instructor.name}"
-instructor.greeting
+
+student.learn
