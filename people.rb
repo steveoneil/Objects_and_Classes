@@ -1,15 +1,27 @@
-class Student
+class Person
+  attr_accessor :name
+end
+
+class Student < Person
 
   def learn
-    "I get it!"
+    puts "I get it!"
   end
 
 end
 
-class Instructor
+class Instructor < Person
 
   def teach
-    "Everything in Ruby is an Object"
+    puts "Everything in Ruby is an Object"
   end
 
 end
+
+student = Student.new
+student.learn
+student.name = "Ted"
+puts "#{student.name}"
+
+instructor = Instructor.new
+instructor.teach
