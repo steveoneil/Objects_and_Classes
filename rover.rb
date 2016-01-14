@@ -44,11 +44,13 @@ end
 # Receiving initial data load
 data_load = Command.new.receive_input
 
-
+# Initialize first Rover (Gort1)
 gort1 = Rover.new
-x = gort1.x_coord
-y = gort1.y_coord
-o = gort1.orientation
+gort1.x_coord = data_load[1][0]
+gort1.y_coord = data_load[1][1]
+gort1.orientation = data_load[1][2]
+
+# puts "x=#{gort1.x_coord} y=#{gort1.y_coord} o=#{gort1.orientation}"
 
 gort1.turn
 gort1.move
