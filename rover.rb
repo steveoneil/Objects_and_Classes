@@ -28,7 +28,7 @@ class Rover
   end
 
   def read_instruction(movement)
-    puts "Position #{@x_coord}, #{@y_coord}, #{@orientation}"
+    # puts "Position #{@x_coord}, #{@y_coord}, #{@orientation}"
     case movement
       when "L"
         turn_left
@@ -40,7 +40,7 @@ class Rover
   end
 
   def turn_left
-    puts "Turning Left"
+    # puts "Turning Left"
     case @orientation
       when "N" then new_direction = "W"
       when "W" then new_direction = "S"
@@ -51,7 +51,7 @@ class Rover
   end
 
   def turn_right
-    puts "Turning Right"
+    # puts "Turning Right"
     case @orientation
       when "N" then new_direction = "E"
       when "E" then new_direction = "S"
@@ -62,7 +62,7 @@ class Rover
   end
 
   def forward
-    puts "Moving Forward #{@orientation}"
+    # puts "Moving Forward #{@orientation}"
     @x_coord = @x_coord.to_i
     @y_coord = @y_coord.to_i
     case @orientation
@@ -89,17 +89,19 @@ data_load[2].each do |movement|
   gort1.read_instruction(movement)
 end
 
-puts "Gort1 Final Position #{gort1.x_coord}, #{gort1.y_coord}, #{gort1.orientation}"
+# puts "Gort1 Final Position #{gort1.x_coord}, #{gort1.y_coord}, #{gort1.orientation}"
+puts "#{gort1.x_coord} #{gort1.y_coord} #{gort1.orientation}"
 
 # Initialize first Rover (Gort2)
 gort2 = Rover.new
 gort2.x_coord = data_load[3][0]
-gort1.y_coord = data_load[3][1]
-gort1.orientation = data_load[3][2]
+gort2.y_coord = data_load[3][1]
+gort2.orientation = data_load[3][2]
 
-# Loading movment instructions to Gort1
+# Loading movment instructions to Gort2
 data_load[4].each do |movement|
-  gort1.read_instruction(movement)
+  gort2.read_instruction(movement)
 end
 
-puts "Gort1 Final Position #{gort2.x_coord}, #{gort2.y_coord}, #{gort2.orientation}"
+# puts "Gort2 Final Position #{gort2.x_coord}, #{gort2.y_coord}, #{gort2.orientation}"
+puts "#{gort2.x_coord} #{gort2.y_coord} #{gort2.orientation}"
