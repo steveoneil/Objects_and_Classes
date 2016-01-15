@@ -27,16 +27,27 @@ class Rover
     @orientation = orientation
   end
 
-  def read_instruction
-
+  def read_instruction(movement)
+    case movement
+      when "L"
+        turn_left
+      when "R"
+        turn_right
+      when "M"
+        forward
+    end
   end
 
-  def turn
-    puts "Turning"
+  def turn_right
+    puts "Turning Right"
   end
 
-  def move
-    puts "Moving"
+  def turn_left
+    puts "Turning Left"
+  end
+
+  def forward
+    puts "Moving Forward"
   end
 
 end
@@ -52,5 +63,7 @@ gort1.orientation = data_load[1][2]
 
 # puts "x=#{gort1.x_coord} y=#{gort1.y_coord} o=#{gort1.orientation}"
 
-gort1.turn
-gort1.move
+# Loading movment instructions to Gort1
+data_load[2].each do |movement|
+  gort1.read_instruction(movement)
+end
